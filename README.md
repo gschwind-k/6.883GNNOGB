@@ -14,3 +14,6 @@ This repo contains our final project for 6.883 Meta Learning, Fall 2020
 * urllib3:  1.24.3
 * scikitlearn:  0.22.2.post1
 * outdated:  0.2.0
+
+### Data
+This code requires the OGB molhiv dataset. the dataset is installed locally upon running the script, queried using the installed OGB package
