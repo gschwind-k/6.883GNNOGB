@@ -7,6 +7,8 @@ from gcn_lib.sparse.torch_vertex import GENConv
 from gcn_lib.sparse.torch_nn import norm_layer, MLP
 import logging
 
+from gen_readout import Global_Gen_Sum_Mean_Max_Pool as GG_Pool
+
 
 class DeeperGCN(torch.nn.Module):
     def __init__(self, args):
@@ -86,6 +88,8 @@ class DeeperGCN(torch.nn.Module):
             self.pool = global_mean_pool
         elif graph_pooling == "max":
             self.pool = global_max_pool
+        elif graph_pooling == "gen":
+            self.pool = GG_Pool(trainable_p=True, trainable_beta=True)
         else:
             raise Exception('Unknown Pool Type')
 
@@ -192,3 +196,9 @@ class DeeperGCN(torch.nn.Module):
                 print('Final s {}'.format(ss))
             else:
                 logging.info('Epoch {}, s {}'.format(epoch, ss))
+
+        if self.trainable_p and self.trainable_beta:
+            if final:
+                print('Final pool params {}'.format([self.pool.p.item(), self.pool.beta.item()]))
+            else:
+                logging.info('Epoch {}, pool params {}'.format(epoch, [self.pool.p.item(), self.pool.beta.item()]))
