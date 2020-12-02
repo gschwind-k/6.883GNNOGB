@@ -1,7 +1,7 @@
 import torch
 from torch_scatter import scatter_add, scatter_sum, scatter_softmax
 
-class Global_Gen_Sum_Mean_Max_Pool(nn.Module):
+class Global_Gen_Sum_Mean_Max_Pool(torch.nn.Module):
     def __init__(self, family = "softmax", p = 1.0, beta = 1.0, 
                  trainable_p = False, trainable_beta = False):
         """
@@ -14,6 +14,7 @@ class Global_Gen_Sum_Mean_Max_Pool(nn.Module):
             trainable (bool): whether the value of p is learnable during training.
         """
         super(Global_Gen_Sum_Mean_Max_Pool, self).__init__()
+        device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
         
         self.family = family
         self.base_p = p

@@ -209,5 +209,6 @@ if __name__ == "__main__":
     cls_criterion = torch.nn.BCEWithLogitsLoss()
     reg_criterion = torch.nn.MSELoss()
 
-    pbounds = {'learning_rate': (.001, .1), 'dropout': (.3, .9)}
-    bayesian_optimization(f=main, p_bounds=pbounds)
+    #pbounds = {'learning_rate': (.001, .1), 'dropout': (.3, .9)}
+    #bayesian_optimization(f=main, p_bounds=pbounds)
+    main(lr=0.01, dropout=0.5)

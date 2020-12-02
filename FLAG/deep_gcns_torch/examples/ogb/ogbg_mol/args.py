@@ -9,7 +9,7 @@ import glob
 
 
 class ArgsInit(object):
-    def __init__(self):
+    def __init__(self, lr, dropout):
         parser = argparse.ArgumentParser(description='DeeperGCN')
         # dataset
         parser.add_argument('--dataset', type=str, default="ogbg-molhiv",
@@ -27,9 +27,9 @@ class ArgsInit(object):
                             help='which gpu to use if any (default: 0)')
         parser.add_argument('--epochs', type=int, default=300,
                             help='number of epochs to train (default: 300)')
-        parser.add_argument('--lr', type=float, default=0.01,
+        parser.add_argument('--lr', type=float, default=lr,
                             help='learning rate set for optimizer.')
-        parser.add_argument('--dropout', type=float, default=0.5)
+        parser.add_argument('--dropout', type=float, default=dropout)
         # model
         parser.add_argument('--num_layers', type=int, default=3,
                             help='the number of layers of the networks')

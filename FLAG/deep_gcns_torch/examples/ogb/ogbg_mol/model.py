@@ -197,7 +197,7 @@ class DeeperGCN(torch.nn.Module):
             else:
                 logging.info('Epoch {}, s {}'.format(epoch, ss))
 
-        if self.trainable_p and self.trainable_beta:
+        if self.pool.trainable_p and self.pool.trainable_beta:
             if final:
                 print('Final pool params {}'.format([self.pool.p.item(), self.pool.beta.item()]))
             else:
