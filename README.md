@@ -11,7 +11,6 @@ This repo contains our final project for 6.883 Meta Learning, Fall 2020
 * numpy:  1.18.5
 * pandas:  1.1.2
 * urllib3:  1.24.3
-* scikitlearn:  0.22.2.post1
 * outdated:  0.2.0
 
 ## DeeperGCN Variants
