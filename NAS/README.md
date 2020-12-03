@@ -2,21 +2,8 @@ This repo is heavily based on the repo for the paper [FLAG: Adversarial Data Aug
 
 We update the original implementation to icnclude Bayesian Optimization and a Generalized Min-Max-Sum Readout Function.
 
-To run the DeeperGCN variants with the above augmentations, go to the subfolder **6.883GNNOGB/NAS/deep_gcns_torch/examples/ogb/ogbg_mol/** and run the following commands:
+To run the DeeperGCN variants with the above augmentations, go to the subfolder **6.883GNNOGB/NAS/deep_gcns_torch/examples/ogb/ogbg_mol/** and run the following command:
 
-
-
-## Citing FLAG
-
-If you use FLAG in your work, please cite our paper.
-
-```
-@misc{kong2020flag,
-      title={FLAG: Adversarial Data Augmentation for Graph Neural Networks}, 
-      author={Kezhi Kong and Guohao Li and Mucong Ding and Zuxuan Wu and Chen Zhu and Bernard Ghanem and Gavin Taylor and Tom Goldstein},
-      year={2020},
-      eprint={2010.09891},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
-}
-```
+	python main.py --use_gpu --conv_encode_edge --num_layers 7 --dataset ogbg-molhiv --block res+ --gcn_aggr softmax --t 1.0 --learn_t --dropout 0.5 --step-size 1e-2 --graph_pooling gen
+	
+Modify the main.py file to specify the parameters for bayesian optimization, and augment the dropout rate and num layers accordingly.
