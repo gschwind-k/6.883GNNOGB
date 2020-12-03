@@ -10,4 +10,4 @@ We augment the implementation of GraphNAS to include edge features in the messag
 
 To run our modified NAS search on the ogb-molhiv dataset, run the following command:
 
-  python -m graphnas.main --dataset ogb
+    python -m graphnas.main --dataset ogb
