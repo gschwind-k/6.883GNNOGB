@@ -2,7 +2,8 @@ This repo is heavily based on the repo for the paper [FLAG: Adversarial Data Aug
 
 We update the original implementation to icnclude Bayesian Optimization and a Generalized Min-Max-Sum Readout Function.
 
-To run the DeeperGCN variants with the above augmentations, run the following command:
+To run the DeeperGCN variants with the above augmentations, go to the subfolder **6.883GNNOGB/NAS/deep_gcns_torch/examples/ogb/ogbg_mol/** and run the following commands:
+
 
 
 ## Citing FLAG
